@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="lamdep.css">
+</head>
+<body>
+
+
+<div class="class-container">
+    <div class="form-container">
+        <h2> Đăng nhập tài khoản của bạn</h2>
+        <input type="text" id="email" name="account" placeholder="Nhập Email của bạn" class="dulieu">
+        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu của bạn" class="dulieu">
+        <button onclick="login()" class="dulieu"> Đăng nhập</button>
+        <button onclick="chuyenHuong()" class="dulieu" >Đăng ký</button>
+    </div>
+</div>
+
+
+<script src="login.js"></script>
+<script src="dangnhap.js"></script>
+<script>
+    function chuyenHuong(){
+        window.document.location.href = "DangKy.html"
+    }
+
+</script>
+</body>
+</html>

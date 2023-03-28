@@ -1,0 +1,59 @@
+.dulieu {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.class-container {
+    width: 100%;
+}
+
+.login {
+
+
+}
+
+.privacy {
+    font-size: 18px;
+    width: auto;
+    text-decoration: none;
+
+}
+
+.form-container {
+    width: 20%;
+    margin-left: 40%;
+}
+
+.c1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+
+
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}

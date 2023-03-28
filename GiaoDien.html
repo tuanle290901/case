@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="giaodien.css">
+
+</head>
+<body>
+
+<header>
+
+
+    <nav class="menu">
+        <a href="GiaoDien.html"><img src="logo.jpg" width="200" height="200" class="logo" ></a>
+
+
+        <ul class="logo1">
+
+            <li><a href="GiaoDien.html">Trang chủ</a></li>
+            <li><a href="giohang.html">Giỏ hàng</a></li>
+            <li><a href="form_html.html"> Đăng Xuất</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="product-table">
+    <table></table>
+</div>
+<script src="giohang.js"></script>
+
+<script>
+    let products = [
+        {
+            id: 1,
+            name: 'Chó Akina Inu',
+            price: 13000000,
+            img: 'akita9_0.jpg'
+        },
+        {
+            id: 2,
+            name: 'Alabai',
+            price: 15000000,
+            img: 'alabai.jpg'
+        },
+        {
+            id: 3,
+            name: 'Chó Sục Bò',
+            price: 20000000,
+            img: 'sucbo.jpg'
+        },
+        {
+            id: 4,
+            name: 'Samoyed trắng Bạch Tuyết',
+            price: 12000000,
+            img: 'samoy4_0.jpg'
+        },
+        {
+            id: 5,
+            name: 'Chó Phú Quốc',
+            price: 15000000,
+            img: 'phucoc.jpg'
+        },
+        {
+            id: 6,
+            name: 'Chó Bắc Hà',
+            price: 13000000,
+            img: 'bacha.jpg'
+        },
+        {
+            id: 7,
+            name: 'Chó Lài (Dingo Đông Dương)',
+            price: 18000000,
+            img: 'dino.jpg'
+        },
+        {
+            id: 8,
+            name: 'Chó H\'Mông cộc đuôi',
+            price: 20000000,
+            img: 'coc4.jpg'
+        },
+        {
+            id: 9,
+            name: 'Labador',
+            price: 16000000,
+            img: 'labador.png'
+        },
+        {
+            id: 10,
+            name: 'Corgi Cardigan',
+            price: 14000000,
+            img: 'cadigan.jpeg'
+        },
+        {
+            id: 11,
+            name: 'Chó Lạp Xưởng',
+            price: 12000000,
+            img: 'cholapxuong.jpg'
+        },
+        {
+            id: 12,
+            name: 'Chó Béc Bỉ',
+            price: 10000000,
+            img: 'becbi.jpg'
+        },
+        {
+            id: 13,
+            name: 'Alaska đen trắng',
+            price: 18000000,
+            img: 'al2.jpg'
+        },
+        {
+            id: 14,
+            name: 'Alaska Hồng Phấn',
+            price: 19000000,
+            img: 'alaska.jpg'
+        },
+        {
+            id: 15,
+            name: 'Đại Ngáo Husky',
+            price: 15000000,
+            img: 'husly.jpeg'
+        },
+        {
+            id: 16,
+            name: 'Golden Vàng Đậm',
+            price: 14000000,
+            img: 'goldan.jpg'
+        },
+    ];
+
+    // Lấy phần tử div có id là "product-table" để đưa bảng vào
+    const productTable = document.getElementById("product-table");
+    // Tạo phần tử bảng
+    const table = document.createElement("table");
+    const row = document.createElement("tr");
+    row.classList.add('tr')
+
+    for (let i = 0; i < products.length; i++) {
+        const product = products[i];
+        const idCell = document.createElement("td");
+        const divCol = document.createElement('div')
+        divCol.classList.add('product')
+        idCell.appendChild(divCol)
+        const image = document.createElement('img')
+        image.src = product.img
+        const name = document.createElement('h2')
+        name.textContent = product.name
+        const price = document.createElement('p')
+        price.textContent = product.price
+        price.classList.add('price')
+        const button = document.createElement('button')
+        button.textContent = 'Thêm vào giỏ hàng'
+        divCol.appendChild(image)
+        divCol.appendChild(name)
+        divCol.appendChild(price)
+        divCol.appendChild(button)
+        button.onclick = function () {
+            addToCart(product);
+        };
+        row.appendChild(idCell);
+    }
+    table.appendChild(row)
+    productTable.appendChild(table);
+</script>
+
+</body>
+</html>
