@@ -12,15 +12,15 @@
 
 
     <nav class="menu">
-        <a href="GiaoDien.html"><img src="logo.jpg" width="200" height="200" class="logo" ></a>
+        <a href="GiaoDien.html"><img src="logo.jpg" width="200" height="200" class="logo"></a>
 
 
         <ul class="logo1">
-
             <li><a href="GiaoDien.html">Trang chủ</a></li>
             <li><a href="giohang.html">Giỏ hàng</a></li>
             <li><a href="form_html.html"> Đăng Xuất</a></li>
         </ul>
+
     </nav>
 </header>
 
@@ -28,6 +28,7 @@
     <table></table>
 </div>
 <script src="giohang.js"></script>
+
 
 <script>
     let products = [
@@ -147,7 +148,7 @@
         const name = document.createElement('h2')
         name.textContent = product.name
         const price = document.createElement('p')
-        price.textContent = product.price
+        price.textContent = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VNĐ';
         price.classList.add('price')
         const button = document.createElement('button')
         button.textContent = 'Thêm vào giỏ hàng'
@@ -163,6 +164,7 @@
     table.appendChild(row)
     productTable.appendChild(table);
 </script>
+
 
 </body>
 </html>

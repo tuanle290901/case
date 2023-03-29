@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <script src="giohang.js"></script>
+    <script src="giohang.js"></script>
     <link rel="stylesheet" href="giaodien.css">
 
 </head>
@@ -16,10 +16,15 @@
         <ul class="logo1">
             <li><a href="GiaoDien.html">Trang chủ</a></li>
             <li><a href="giohang.html">Giỏ hàng</a></li>
+            <li><a href="form_html.html"> Đăng Xuất</a></li>
+
         </ul>
     </nav>
 </header>
 
+<div id="carts-table">
+    <table></table>
+</div>
 
 
 <div id="cart-container">
@@ -28,7 +33,51 @@
 <div class="total">
     Tổng giá tiền: <span id="total-price"></span> VNĐ
 </div>
-<button onclick="displayResults()"> tính tiền</button>
+
 
 </body>
+<script>
+    const productTable = document.getElementById("carts-table");
+    const table = document.createElement("table");
+    const row = document.createElement("tr");
+    row.classList.add('tr')
+
+    let myCarts = JSON.parse(localStorage.getItem("carts"))
+    let total = 0
+    for (let i = 0; i < myCarts.length; i++) {
+        const cart = myCarts[i];
+        total += cart.price
+
+        const idCell = document.createElement("td");
+        const divCol = document.createElement('div')
+        divCol.classList.add('product')
+        idCell.appendChild(divCol)
+        const image = document.createElement('img')
+        image.src = cart.img
+        const name = document.createElement('h2')
+        name.textContent = cart.name
+        const price = document.createElement('p')
+        price.textContent =  cart.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VNĐ';
+        price.classList.add('price')
+        const button = document.createElement('button')
+        button.textContent = 'xóa khỏi giỏ hàng'
+        button.onclick = function () {
+            delToCart(cart);
+        };
+        divCol.appendChild(image)
+        divCol.appendChild(name)
+        divCol.appendChild(price)
+        divCol.appendChild(button)
+
+        row.appendChild(idCell);
+    }
+
+    table.appendChild(row)
+    productTable.appendChild(table)
+
+    window.onload = function() {
+        document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+</script>
+
 </html>

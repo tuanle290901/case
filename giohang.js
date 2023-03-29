@@ -1,46 +1,24 @@
-let carts = []
+
 function addToCart(product) {
+    const carts = JSON.parse(localStorage.getItem('carts')) || []
     carts.push(product)
     alert('Đã thêm vào giỏ hàng')
+
     localStorage.setItem('carts', JSON.stringify(carts))
 }
 
-function displayResults() {
-    console.log(localStorage.getItem('carts'))
-    const carts = JSON.parse(localStorage.getItem('carts'))
-    let total = 0
-    for (let i = 0; i < carts.length; i++) {
-        const cart = carts[i];
-        total += cart.price
+
+/** Xóa giỏ hàng */
+function delToCart(product) {
+    let result = confirm('Bạn có chắc chắn muốn xóa khỏi giỏ hàng không')
+    if ( result === true){
+        const mycarts = JSON.parse(localStorage.getItem('carts'))
+        const index = mycarts.indexOf(product)
+        mycarts.splice(index,1)
+        localStorage.setItem('carts', JSON.stringify(mycarts))
+        window.location.reload()
     }
-    document.getElementById('total-price').innerHTML = total
 
 }
 
-// class cart{
-//
-//     id
-//     name
-//     price
-//     img
-//
-//     constructor(id,name,price,img) {
-//         this.id= id
-//         this.name = name
-//         this.price = price
-//         this.img = img
-//     }
-//
-//     getId(){
-//         return this.id
-//     }
-//     getName(){
-//         return this.name
-//     }
-//     getPrice(){
-//         return this.price
-//     }
-//     getImg(){
-//         return this.name
-//     }
-// }
+

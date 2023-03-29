@@ -41,7 +41,7 @@ function login() {
             alert("Đăng nhập thành công");
             window.location.href = "GiaoDien.html"
         } else {
-            alert("Đăng nhập thất bại");
+            alert("Email hoặc mật khẩu không chính xác.");
         }
     }
 }
@@ -58,4 +58,5 @@ function register() {
     localStorage.setItem("ACCOUNT", JSON.stringify(arrAccount));
 
     alert("Đăng ký thành công!");
+    window.location.href = 'form_html.html'
 }
